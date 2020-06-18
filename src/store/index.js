@@ -60,7 +60,7 @@ export default new Vuex.Store({
             }
 
             const userData = {
-                // age: user.age,
+                nick: user.nick,
                 // country: user.country,
                 email: user.email,
                 // hobbies: user.hobbies

@@ -7,6 +7,7 @@
           <div class="grey-text">
             <mdb-input v-model="email" label="Your email" group type="email" validate error="wrong" success="right"/>
             <mdb-input v-model="password" label="Your password" group type="password" validate/>
+            <mdb-input v-model="nick" label="Your nick" group type="text" validate/>
           </div>
           <div class="text-center py-4 mt-3">
             <mdb-btn color="cyan" type="submit">Register</mdb-btn>
@@ -25,14 +26,16 @@
     data() {
       return {
         email: '',
-        password: ''
+        password: '',
+        nick: ''
       }
     },
     methods: {
       onFormSubmit() {
         const userData = {
           email: this.email,
-          password: this.password
+          password: this.password,
+          nick: this.nick
         };
 
         console.log(userData);
