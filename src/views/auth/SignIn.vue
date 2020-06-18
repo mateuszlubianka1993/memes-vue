@@ -18,7 +18,6 @@
 </template>
 
 <script>
-  import axios from '../../axios-auth';
   import { mdbInput, mdbBtn, mdbCard, mdbCardBody } from 'mdbvue';
   export default {
     name: 'SignIn',
@@ -36,13 +35,7 @@
         };
 
         console.log(userData);
-        axios.post('accounts:signInWithPassword?key=AIzaSyBMQfXCjny4y2CClfe-1wR4Z6os7Kw6iRk', {
-          email: userData.email,
-          password: userData.password,
-          returnSecureToken: true
-        })
-        .then(res => console.log(res))
-        .catch(err => console.log(err))
+        this.$store.dispatch('signIn', {email: userData.email, password: userData.password})
       }
     },
     components: {

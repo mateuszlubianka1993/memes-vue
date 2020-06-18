@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-import store from './store'
+import store from './store/index'
 
 import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbvue/lib/css/mdb.min.css';
