@@ -36,7 +36,7 @@
         };
 
         console.log(userData);
-        this.$store.dispatch('signUp', {email: userData.email, password: userData.password})
+        this.$store.dispatch('signUp', userData)
       }
     },
     components: {

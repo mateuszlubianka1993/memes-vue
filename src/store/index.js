@@ -1,22 +1,27 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from '../axios-auth';
+import globalAxios from 'axios';
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
     state: {
         idToken: null,
-        userId: null
+        userId: null,
+        user: null
     },
     mutations: {
         auth(state, data) {
             state.idToken = data.token
             state.userId = data.userId
+        },
+        storeUser(state, user) {
+            state.user = user
         }
     },
     actions: {
-        signUp({ commit }, payload) {
+        signUp({ commit, dispatch }, payload) {
 
             axios.post('accounts:signUp?key=AIzaSyBMQfXCjny4y2CClfe-1wR4Z6os7Kw6iRk', {
                     email: payload.email,
@@ -29,6 +34,7 @@ export default new Vuex.Store({
                         token: res.data.idToken,
                         userId: res.data.localId
                     })
+                    dispatch('setUser', payload)
                 })
                 .catch(err => console.log(err))
         },
@@ -47,6 +53,40 @@ export default new Vuex.Store({
                     })
                 })
                 .catch(err => console.log(err))
+        },
+        setUser({ state }, user) {
+            if (!state.idToken) {
+                return
+            }
+
+            globalAxios.post('/users.json' + '?auth=' + state.idToken, user)
+                .then(res => console.log(res))
+                .catch(err => console.log(err))
+        },
+        getUser({ commit, state }) {
+            if (!state.idToken) {
+                return
+            }
+
+            globalAxios.get('/users.json' + '?auth=' + state.idToken)
+                .then(res => {
+                    console.log(res);
+                    const data = res.data;
+                    const users = [];
+                    for (let key in data) {
+                        const user = data[key];
+                        user.id = key;
+                        users.push(user);
+                    }
+                    console.log(users);
+                    commit('storeUser', users[0]);
+                })
+                .catch(err => console.log(err))
+        }
+    },
+    getters: {
+        user(state) {
+            return state.user
         }
     },
     modules: {}
