@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <Nav />
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
@@ -10,7 +11,19 @@
   </div>
 </template>
 
+<script>
+import Nav from './components/Nav';
+export default {
+  components: {
+    Nav
+  }
+}
+</script>
+
 <style lang="scss">
+body, html {
+  overflow: hidden;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
