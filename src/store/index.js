@@ -17,7 +17,7 @@ export default new Vuex.Store({
             state.userId = data.userId
         },
         storeUser(state, user) {
-            state.user = user
+            state.user = user.data
         }
     },
     actions: {
@@ -59,7 +59,14 @@ export default new Vuex.Store({
                 return
             }
 
-            globalAxios.post('/users.json' + '?auth=' + state.idToken, user)
+            const userData = {
+                // age: user.age,
+                // country: user.country,
+                email: user.email,
+                // hobbies: user.hobbies
+            }
+
+            globalAxios.put(`users/${state.userId}.json?auth=${state.idToken}`, userData)
                 .then(res => console.log(res))
                 .catch(err => console.log(err))
         },
@@ -68,18 +75,9 @@ export default new Vuex.Store({
                 return
             }
 
-            globalAxios.get('/users.json' + '?auth=' + state.idToken)
+            globalAxios.get(`users/${state.userId}.json?auth=${state.idToken}`)
                 .then(res => {
-                    console.log(res);
-                    const data = res.data;
-                    const users = [];
-                    for (let key in data) {
-                        const user = data[key];
-                        user.id = key;
-                        users.push(user);
-                    }
-                    console.log(users);
-                    commit('storeUser', users[0]);
+                    commit("storeUser", res)
                 })
                 .catch(err => console.log(err))
         }
