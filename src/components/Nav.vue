@@ -10,7 +10,7 @@
           <mdb-dropdown-menu>
             <mdb-dropdown-item><router-link to="/user" >Profile</router-link></mdb-dropdown-item>
             <mdb-dropdown-item>Another action</mdb-dropdown-item>
-            <mdb-dropdown-item>Something else here</mdb-dropdown-item>
+            <mdb-dropdown-item @click="logOut">Log Out</mdb-dropdown-item>
           </mdb-dropdown-menu>
         </mdb-dropdown>
         <router-link to="/"><mdb-nav-item active>Home</mdb-nav-item></router-link>
@@ -37,6 +37,11 @@
       mdbDropdownToggle,
       mdbDropdownMenu,
       mdbDropdownItem
+    },
+    methods: {
+      logOut() {
+        this.$store.dispatch('signOut');
+      }
     },
     computed: {
       auth() {
