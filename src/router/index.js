@@ -2,6 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 
+import store from '../store/index';
+
 Vue.use(VueRouter)
 
 const routes = [{
@@ -34,7 +36,14 @@ const routes = [{
         path: '/user',
         name: 'UserDetails',
         component: () =>
-            import ('../views/UserDetails.vue')
+            import ('../views/UserDetails.vue'),
+        beforeEnter(to, from, next) {
+            if (store.state.idToken) {
+                next()
+            } else {
+                next('/signin')
+            }
+        }
     }
 ]
 
