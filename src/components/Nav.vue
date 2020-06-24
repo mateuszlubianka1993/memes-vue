@@ -8,7 +8,7 @@
         <mdb-dropdown tag="li" class="nav-item dropdown-menu-right">
           <mdb-dropdown-toggle tag="a" navLink color="indigo" slot="toggle" waves-fixed><mdb-icon icon="user-alt" size="lg" /></mdb-dropdown-toggle>
           <mdb-dropdown-menu>
-            <mdb-dropdown-item>Action</mdb-dropdown-item>
+            <mdb-dropdown-item><router-link to="/user" >Profile</router-link></mdb-dropdown-item>
             <mdb-dropdown-item>Another action</mdb-dropdown-item>
             <mdb-dropdown-item>Something else here</mdb-dropdown-item>
           </mdb-dropdown-menu>
