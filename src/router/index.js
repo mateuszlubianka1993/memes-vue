@@ -44,7 +44,20 @@ const routes = [{
                 next('/signin')
             }
         }
-    }
+    },
+    {
+        path: '/add',
+        name: 'AddNew',
+        component: () =>
+            import ('../views/AddNew.vue'),
+        beforeEnter(to, from, next) {
+            if (store.state.idToken) {
+                next()
+            } else {
+                next('/signin')
+            }
+        }
+    },
 ]
 
 const router = new VueRouter({
