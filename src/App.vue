@@ -8,14 +8,18 @@
       <router-link to="/signin">Sign In</router-link> 
     </div>
     <router-view/>
+    <Footer />
   </div>
 </template>
 
 <script>
 import Nav from './components/Nav';
+import Footer from './components/Footer';
+
 export default {
   components: {
-    Nav
+    Nav,
+    Footer
   }
 }
 </script>
