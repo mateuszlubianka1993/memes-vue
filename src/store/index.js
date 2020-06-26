@@ -39,7 +39,8 @@ export default new Vuex.Store({
                         token: res.data.idToken,
                         userId: res.data.localId
                     })
-                    dispatch('setUser', payload)
+                    dispatch('setUser', payload);
+                    router.replace('/');
                 })
                 .catch(err => console.log(err))
         },
@@ -56,6 +57,8 @@ export default new Vuex.Store({
                         token: res.data.idToken,
                         userId: res.data.localId
                     })
+
+                    router.replace('/');
                 })
                 .catch(err => console.log(err))
         },
