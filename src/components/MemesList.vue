@@ -1,6 +1,5 @@
 <template>
     <div class="container">
-        MemesList
         <Meme v-for="(meme, index) in memes" :key="index" :meme="meme" />
     </div>
 </template>

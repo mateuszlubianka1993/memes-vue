@@ -22,7 +22,7 @@ export default {
 
 <style lang="scss">
 body, html {
-  overflow: hidden;
+  // overflow: hidden;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
