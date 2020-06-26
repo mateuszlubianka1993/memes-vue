@@ -10,7 +10,8 @@ export default new Vuex.Store({
     state: {
         idToken: null,
         userId: null,
-        user: null
+        user: null,
+        memes: []
     },
     mutations: {
         auth(state, data) {
@@ -23,9 +24,20 @@ export default new Vuex.Store({
         clearAuth(state) {
             state.userId = null
             state.idToken = null
+        },
+        fillMemes(state, data) {
+            state.memes = data
         }
     },
     actions: {
+        getMemes({ commit }) {
+
+            globalAxios.get(`memes.json`)
+                .then(res => {
+                    commit("fillMemes", res.data)
+                })
+                .catch(err => console.log(err))
+        },
         signUp({ commit, dispatch }, payload) {
 
             axios.post('accounts:signUp?key=AIzaSyBMQfXCjny4y2CClfe-1wR4Z6os7Kw6iRk', {
@@ -93,13 +105,19 @@ export default new Vuex.Store({
             commit("clearAuth");
             router.replace('/signin')
         },
-        setMeme({ state }, meme) {
+        setMeme({ state, dispatch }, meme) {
             if (!state.idToken) {
                 return
             }
 
-            globalAxios.put(`memes/${state.userId}.json?auth=${state.idToken}`, meme)
-                .then(res => console.log(res))
+            globalAxios.put(`memes/${meme.title}.json?auth=${state.idToken}`, meme)
+                .then(res => {
+                    console.log(res)
+                    dispatch('getMemes');
+                })
+                .then(() => {
+                    router.replace('/')
+                })
                 .catch(err => console.log(err))
         }
     },
@@ -109,6 +127,9 @@ export default new Vuex.Store({
         },
         isAuth(state) {
             return state.idToken !== null
+        },
+        memesList(state) {
+            return state.memes
         }
     },
     modules: {}

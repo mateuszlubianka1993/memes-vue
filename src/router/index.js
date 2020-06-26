@@ -58,6 +58,12 @@ const routes = [{
             }
         }
     },
+    {
+        path: '/memes',
+        name: 'Memes',
+        component: () =>
+            import ('../views/Memes.vue')
+    }
 ]
 
 const router = new VueRouter({
