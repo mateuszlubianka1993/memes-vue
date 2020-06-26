@@ -7,8 +7,15 @@
       >
         <p class="h4 text-center mb-4">Add new meme.</p>
         <div class="grey-text">
-          <mdb-input type="text" label="Meme title" bg counter v-model="title" />
           <mdb-input
+            type="text"
+            label="Meme title"
+            bg
+            counter
+            v-model="title"
+          />
+          <mdb-input
+            v-model="description"
             type="textarea"
             label="Meme description"
             :rows="5"
@@ -34,6 +41,9 @@
               >
             </div>
           </div>
+          <mdb-container class="mt-3">
+            <mdb-progress :height="20" :value="uploadValue" />
+          </mdb-container>
         </div>
         <div class="text-center mt-3">
           <mdb-btn color="primary" type="submit">Add</mdb-btn>
@@ -44,36 +54,62 @@
 </template>
 
 <script>
-import { mdbInput, mdbBtn } from "mdbvue";
+import { mdbInput, mdbBtn, mdbContainer, mdbProgress } from "mdbvue";
 import storage from "../firebaseStorage";
 export default {
   name: "AddNew",
   components: {
     mdbInput,
     mdbBtn,
+    mdbContainer,
+    mdbProgress
   },
   data() {
     return {
       file: null,
-      title: '',
-      user: !this.$store.getters.user ? false : this.$store.getters.user.email
+      title: "",
+      description: "",
+      user: !this.$store.getters.user ? false : this.$store.getters.user.email,
+      nick: !this.$store.getters.user ? false : this.$store.getters.user.nick,
+      uploadValue: 0,
     };
   },
   methods: {
     onSelect(e) {
       this.file = e.target.files[0];
-      console.log(this.file);
     },
     onUpload() {
       let storageRef = storage.ref();
       let timeInMs = Date.now();
       const user = this.user;
-      let mountainImagesRef = storageRef.child(`memes/${this.title}-${user}-${timeInMs}`);
+      let imagesRef = storageRef.child(
+        `memes/${this.title}-${user}-${timeInMs}`
+      );
       let file = this.file;
-     mountainImagesRef.put(file).then(function(snapshot) {
-        console.log("Uploaded a blob or file!", snapshot);
+
+      const newMeme = {
+        title: this.title,
+        nick: this.nick,
+        description: this.description,
+      };
+
+      this.title = '';
+      this.description = '';
+
+      imagesRef.put(file).then((snapshot) => {
+        this.uploadValue =
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+
+        const imagePath = snapshot.ref.fullPath;
+        newMeme.imagePath = imagePath;
+
+        this.$store.dispatch("setMeme", newMeme);
+
       });
     },
+  },
+  created() {
+    this.$store.dispatch("getUser");
   },
 };
 </script>

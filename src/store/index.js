@@ -89,6 +89,15 @@ export default new Vuex.Store({
         signOut({ commit }) {
             commit("clearAuth");
             router.replace('/signin')
+        },
+        setMeme({ state }, meme) {
+            if (!state.idToken) {
+                return
+            }
+
+            globalAxios.put(`memes/${state.userId}.json?auth=${state.idToken}`, meme)
+                .then(res => console.log(res))
+                .catch(err => console.log(err))
         }
     },
     getters: {
