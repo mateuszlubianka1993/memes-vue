@@ -38,6 +38,11 @@ export default new Vuex.Store({
                 })
                 .catch(err => console.log(err))
         },
+        autoLogOut({ commit }, expTime) {
+            setTimeout(() => {
+                commit('clearAuth')
+            }, expTime * 1000)
+        },
         signUp({ commit, dispatch }, payload) {
 
             axios.post('accounts:signUp?key=AIzaSyBMQfXCjny4y2CClfe-1wR4Z6os7Kw6iRk', {
@@ -53,10 +58,11 @@ export default new Vuex.Store({
                     })
                     dispatch('setUser', payload);
                     router.replace('/');
+                    dispatch('autoLogOut', res.data.expiresIn);
                 })
                 .catch(err => console.log(err))
         },
-        signIn({ commit }, payload) {
+        signIn({ commit, dispatch }, payload) {
 
             axios.post('accounts:signInWithPassword?key=AIzaSyBMQfXCjny4y2CClfe-1wR4Z6os7Kw6iRk', {
                     email: payload.email,
@@ -64,13 +70,13 @@ export default new Vuex.Store({
                     returnSecureToken: true
                 })
                 .then(res => {
-                    console.log(res);
                     commit('auth', {
                         token: res.data.idToken,
                         userId: res.data.localId
                     })
 
                     router.replace('/');
+                    dispatch('autoLogOut', res.data.expiresIn);
                 })
                 .catch(err => console.log(err))
         },
