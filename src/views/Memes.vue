@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container mt-5">
         <h2 class="mb-4">The funniest memes on the web.</h2>
         <MemesList :memes="memes" />
     </div>

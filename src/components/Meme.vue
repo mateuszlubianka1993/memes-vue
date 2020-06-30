@@ -1,6 +1,6 @@
 <template>
   <div class="meme row mb-4">
-    <div class="col-12 col-md-8 meme-box pt-3 pb-1 m-auto">
+    <div class="col-12 col-md-8 meme-box pt-3 pb-1 m-auto z-depth-2">
       <h3>{{ meme.title }}</h3>
       <div class="img-box border border-dark">
         <img :src="imageSrc" class="meme-img" />
@@ -36,7 +36,6 @@ export default {
         .getDownloadURL()
         .then((url) => {
           this.imageSrc = url;
-          console.log("ccc", url);
         })
         .catch(function(error) {
           console.log(error);
@@ -52,7 +51,7 @@ export default {
 <style lang="scss" scoped>
 .meme {
   .meme-box {
-    border: 2px solid #000;
+    border: 2px solid #444;
 
     img.meme-img {
       max-width: 100%;
