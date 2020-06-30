@@ -1,5 +1,5 @@
 <template>
-  <mdb-navbar expand="large" dark color="elegant" class="z-depth-2">
+  <mdb-navbar expand="large" dark color="elegant" class="z-depth-2" position="top">
     <mdb-navbar-brand href="#">
       Navbar
     </mdb-navbar-brand>

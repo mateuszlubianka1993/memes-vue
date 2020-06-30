@@ -1,16 +1,15 @@
 <template>
-  <div class="container">
+  <div class="container pt-4 pb-4 add-meme mt-5">
     <div class="row">
       <form
         @submit.prevent="onUpload"
-        class="add-form col-10 col-md-8 col-lg-6 m-auto border border-primary p-3"
+        class="add-form col-10 col-md-8 col-lg-6 m-auto p-3  z-depth-3" 
       >
         <p class="h4 text-center mb-4">Add new meme.</p>
         <div class="grey-text">
           <mdb-input
             type="text"
             label="Meme title"
-            bg
             counter
             v-model="title"
           />
@@ -19,15 +18,9 @@
             type="textarea"
             label="Meme description"
             :rows="5"
-            bg
             counter
           />
           <div class="input-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text" id="inputGroupFileAddon01"
-                >Upload</span
-              >
-            </div>
             <div class="custom-file">
               <input
                 type="file"
@@ -36,17 +29,17 @@
                 aria-describedby="inputGroupFileAddon01"
                 @change="onSelect"
               />
-              <label class="custom-file-label" for="inputGroupFile01"
+              <label class="custom-file-label text-left" for="inputGroupFile01"
                 >Choose file</label
               >
             </div>
           </div>
           <mdb-container class="mt-3">
-            <mdb-progress :height="20" :value="uploadValue" />
+            <mdb-progress color="success" :height="20" :value="uploadValue" />
           </mdb-container>
         </div>
         <div class="text-center mt-3">
-          <mdb-btn color="primary" type="submit">Add</mdb-btn>
+          <mdb-btn color="elegant" type="submit">Add</mdb-btn>
         </div>
       </form>
     </div>
@@ -114,4 +107,8 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.add-meme {
+  min-height: 100vh;
+}
+</style>

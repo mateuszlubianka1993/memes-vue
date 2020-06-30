@@ -1,5 +1,5 @@
 <template>
-  <div class="container pt-4 pb-4">
+  <div class="container pt-4 pb-4 sign-up mt-5">
     <mdb-card class="container z-depth-3">
       <mdb-card-body>
         <form @submit.prevent="onFormSubmit">
@@ -56,3 +56,9 @@
     }
   }
 </script>
+
+<style lang="scss" scoped>
+.sign-up {
+  min-height: 100vh;
+}
+</style>
