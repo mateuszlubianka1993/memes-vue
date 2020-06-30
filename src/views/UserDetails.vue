@@ -9,6 +9,8 @@
             <p class="pb-4">Example of Material Design Form</p>
               <h5 class="h5-responsive" v-if="nick">Nick: {{nick}}</h5>
               <h5 class="h5-responsive" v-if="email">Email: {{email}}</h5>
+              <h5 class="h5-responsive" v-if="age">Age: {{age}}</h5>
+              <h5 class="h5-responsive" v-if="country">Country: {{country}}</h5>
           </mdb-card-body>
         </mdb-col>
       </mdb-row>
@@ -27,6 +29,12 @@ export default {
     },
     nick() {
       return !this.$store.getters.user ? false : this.$store.getters.user.nick;
+    },
+    age() {
+      return !this.$store.getters.user ? false : this.$store.getters.user.age;
+    },
+    country() {
+      return !this.$store.getters.user ? false : this.$store.getters.user.country;
     }
   },
   created() {

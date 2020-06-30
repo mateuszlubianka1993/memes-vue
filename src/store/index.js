@@ -116,9 +116,9 @@ export default new Vuex.Store({
 
             const userData = {
                 nick: user.nick,
-                // country: user.country,
+                age: user.age,
                 email: user.email,
-                // hobbies: user.hobbies
+                country: user.country
             }
 
             globalAxios.put(`users/${state.userId}.json?auth=${state.idToken}`, userData)

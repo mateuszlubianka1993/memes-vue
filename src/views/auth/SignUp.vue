@@ -8,6 +8,8 @@
             <mdb-input v-model="email" label="Your email" group type="email" validate error="wrong" success="right"/>
             <mdb-input v-model="password" label="Your password" group type="password" validate/>
             <mdb-input v-model="nick" label="Your nick" group type="text" validate/>
+            <mdb-input v-model="age" label="Your age" group type="number" validate/>
+            <mdb-input v-model="country" label="Your country" group type="text" validate/>
           </div>
           <div class="text-center py-4 mt-3">
             <mdb-btn color="cyan" type="submit">Register</mdb-btn>
@@ -27,7 +29,9 @@
       return {
         email: '',
         password: '',
-        nick: ''
+        nick: '',
+        age: '',
+        country: ''
       }
     },
     methods: {
@@ -35,7 +39,9 @@
         const userData = {
           email: this.email,
           password: this.password,
-          nick: this.nick
+          nick: this.nick,
+          age: this.age,
+          country: this.country
         };
 
         console.log(userData);
