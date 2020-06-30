@@ -20,13 +20,15 @@ export default {
   components: {
     Nav,
     Footer
+  },
+  created() {
+    this.$store.dispatch('autoLogIn');
   }
 }
 </script>
 
 <style lang="scss">
 body, html {
-  // overflow: hidden;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
