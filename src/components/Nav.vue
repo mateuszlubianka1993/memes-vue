@@ -1,12 +1,12 @@
 <template>
-  <mdb-navbar expand="large" dark color="indigo">
+  <mdb-navbar expand="large" dark color="elegant">
     <mdb-navbar-brand href="#">
       Navbar
     </mdb-navbar-brand>
     <mdb-navbar-toggler>
       <mdb-navbar-nav right>
         <mdb-dropdown tag="li" class="nav-item dropdown-menu-right" v-if="auth">
-          <mdb-dropdown-toggle tag="a" navLink color="indigo" slot="toggle" waves-fixed><mdb-icon icon="user-alt" size="lg" /></mdb-dropdown-toggle>
+          <mdb-dropdown-toggle tag="a" navLink color="elegant-color" slot="toggle" waves-fixed><mdb-icon icon="user-alt" size="lg" /></mdb-dropdown-toggle>
           <mdb-dropdown-menu>
             <mdb-dropdown-item><router-link to="/user" >Profile</router-link></mdb-dropdown-item>
             <mdb-dropdown-item><router-link to="/add" >Add Meme</router-link></mdb-dropdown-item>
