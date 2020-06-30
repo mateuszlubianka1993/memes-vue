@@ -1,6 +1,6 @@
 <template>
-  <div class="container">
-    <mdb-card class="container">
+  <div class="container pt-4 pb-4">
+    <mdb-card class="container z-depth-3">
       <mdb-card-body>
         <form @submit.prevent="onFormSubmit">
           <p class="h4 text-center py-4">Sign in</p>
@@ -9,7 +9,7 @@
             <mdb-input v-model="password" label="Your password" group type="password" validate/>
           </div>
           <div class="text-center py-4 mt-3">
-            <mdb-btn color="cyan" type="submit">Login</mdb-btn>
+            <mdb-btn color="elegant" type="submit">Login</mdb-btn>
           </div>
         </form>
       </mdb-card-body>

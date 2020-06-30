@@ -17,7 +17,6 @@
         <router-link to="/memes"><mdb-nav-item>Memes</mdb-nav-item></router-link>
         <router-link to="/signup" v-if="!auth"><mdb-nav-item>Sign Up</mdb-nav-item></router-link>
         <router-link to="/signin" v-if="!auth"><mdb-nav-item>Sign In</mdb-nav-item></router-link>
-        <router-link to="/about"><mdb-nav-item>About</mdb-nav-item></router-link>
       </mdb-navbar-nav>
     </mdb-navbar-toggler>
   </mdb-navbar>
