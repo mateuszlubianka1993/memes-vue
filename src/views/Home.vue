@@ -23,7 +23,6 @@ export default {
 
 <style lang="scss" scoped>
 .home {
-  background-color: red;
   min-height: 100vh;
   // Zdjęcie autorstwa Miguel Á. Padriñán z Pexels
   background-image: url('../assets/bg.jpg');
