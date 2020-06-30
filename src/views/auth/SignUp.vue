@@ -1,6 +1,6 @@
 <template>
-  <div class="container">
-    <mdb-card class="container">
+  <div class="container pt-4 pb-4">
+    <mdb-card class="container z-depth-3">
       <mdb-card-body>
         <form @submit.prevent="onFormSubmit">
           <p class="h4 text-center py-4">Sign up</p>
@@ -12,7 +12,7 @@
             <mdb-input v-model="country" label="Your country" group type="text" validate/>
           </div>
           <div class="text-center py-4 mt-3">
-            <mdb-btn color="cyan" type="submit">Register</mdb-btn>
+            <mdb-btn color="elegant" type="submit">Register</mdb-btn>
           </div>
         </form>
       </mdb-card-body>
