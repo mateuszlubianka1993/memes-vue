@@ -1,17 +1,17 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/mateuszlubianka1993/movie-vue">
+  <a href="https://github.com/mateuszlubianka1993/memes-vue">
     <img src="/src/assets/logo.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Movir App Vue</h3>
+  <h3 align="center">The Memes App Vue</h3>
 
   <p align="center">
-    Simple Movie App.
+    Memes App
     <br />
     <br />
-    <a href="https://movie-vue.netlify.app">View Demo</a>
+    <a href="https://memes-vue.netlify.app/">View Demo</a>
   </p>
 </p>
 
@@ -33,29 +33,27 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-This is the Movie App. On home page you can find 3 lists: Popular Movies, Popular People and Popular TV Shows. After click on a movie/person/show card you can see page with more details.
-You can also find the movie ranking and the tv shows ranking. 
-In this application it is also possible to find out what films are currently in theaters or about upcoming film premieres.  
-You can also search for movies/people/tv shows by title/name.
+This is the Memes App. You can sign up, sign in and log out. If you are logged in, you can also add your memes. Visiting the 'Profile' page, you can view information about the logged in user.
 **Scroll down to get more info**
 
 ### Built With
 
 * Vue.js
+* Vuex
+* Firebase
 * Html
 * CSS
 * Java Script
 * axios
 * vue-router
 * MDBVue
-* The Movie Database API
 * SCSS
 
 ## Usage
 ![Demo](img/usage.gif)
 
 ## Screens
-![Desktop](img/desktop.jpg)
+![Desktop](img/desktop1.jpg)
 ![Mobile1](img/mobile1.jpg)
 ![Mobile2](img/mobile2.jpg)
 ![Mobile3](img/mobile3.jpg)
@@ -77,7 +75,7 @@ npm install npm@latest -g
  
 1. Clone the repo
 ```sh
-git clone https://github.com/mateuszlubianka1993/movie-vue
+git clone https://github.com/mateuszlubianka1993/memes-vue
 ```
 2. Install NPM packages
 ```sh
@@ -100,5 +98,5 @@ npm run lint
 <!-- CONTACT -->
 ## Contact
 
-* Project Link: [https://github.com/mateuszlubianka1993/movie-vue](https://github.com/mateuszlubianka1993/movie-vue)
-* Live Demo: [https://movie-vue.netlify.app/](https://movie-vue.netlify.app/)
+* Project Link: [https://github.com/mateuszlubianka1993/memes-vue](https://github.com/mateuszlubianka1993/memes-vue)
+* Live Demo: [https://memes-vue.netlify.app//](https://memes-vue.netlify.app//)
