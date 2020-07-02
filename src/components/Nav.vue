@@ -1,7 +1,7 @@
 <template>
   <mdb-navbar expand="large" dark color="elegant" class="z-depth-2" position="top">
     <mdb-navbar-brand href="#">
-      Navbar
+      MemesVue
     </mdb-navbar-brand>
     <mdb-navbar-toggler>
       <mdb-navbar-nav right>
